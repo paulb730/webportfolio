@@ -1,0 +1,51 @@
+
+
+
+
+$color-00:#000000;
+$color-01:#EEEEEE;
+$color-02:#E94560;
+$color-03:#16213E;
+$color-04:#533483;
+$color-05:#040D18;
+$color-06:#FB2576;
+
+
+$primary:#232323;
+$secondary:#faa300;
+$success:$color-06;
+
+
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+:root{
+
+    --linear-gradient:linear-gradient(180deg, #232323 0%, #2a2127 61%, rgb(73, 12, 53) 100%);
+    --font-kanit: "Kanit", sans-serif;
+    --font-kanit-normal: "Kanit", normal;
+    --font-kanit-italic: "Kanit", italic;
+    --font-color:#f1f1f1;
+    --eighth-color:#faa300;
+    --seventh-color:#e1e1e1;
+    --sixth-color:#F70776;
+    --fifth-color:#252425;
+    --f4-color:#434546;
+    --fourth-color:#626568;
+    --third-color:#232323;
+    --primary-color:#000000;
+    --secondary-color:#E94560;
+    --margin-footer:0;
+    --width-card:300px;
+    --height-card:300px;
+    --padding:3px;
+
+
+     }

@@ -1,0 +1,132 @@
+@use '../abstract/mixin' as m;
+
+.container_home::-webkit-scrollbar{
+    display: none;
+}
+.main_card{
+    height: 95vh;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    padding: 0;
+    background: none;
+    border: none;
+    color:var(--font-color);
+    scroll-snap-align: center;
+}
+#subtitulo{
+    font-weight: 200;
+    font-size: 18px;
+}
+.column1{
+    background: var( --fifth-color);
+    align-items:center;
+    justify-content: center;
+    vertical-align: middle;
+    height:40vh;
+    @include m.sm{
+        width: 50%;
+        justify-content: center;
+        max-width: 50%;
+        height: 100vh;
+    }
+}
+.column2{
+    background: none;
+    color: var(--font-color);
+    align-items:center;
+    justify-content: center;
+    vertical-align: middle;
+    width: 100%;
+    height: auto;
+    @include m.sm{
+        background: var(--sixth-color);
+        width: 50%;
+        height: 100vh;
+    }
+ }
+.column2 div {
+    @include m.sm{
+       @include m.m_card(3rem,-3rem,0,var(--fifth-color),true);
+       width: 100vh;
+       height: 50vh;
+   }
+   @include m.m_card(2rem,0rem,0,none);
+   position: relative;
+   height: auto;
+   filter: drop-shadow(0px 0px 6px #0d0d0d7d);
+   
+}
+
+
+
+
+#main_form .column1{
+
+    height:25vh;
+    background: none;
+    border: none;
+    width: 100%;
+    @include m.sm{
+
+        width: 50%;
+        justify-content: center;
+        max-width: 50%;
+        height: 100vh;
+    }
+}
+
+#main_form .column2{
+
+    background: none; 
+    border: none;
+    box-shadow: 0px 0px 0px 0px var(--third-color);
+
+}
+
+#main_form .column2 div{
+
+    @include m.sm{
+        @include m.m_card(3rem,0rem,0,none,true);
+        width: 100vh;
+    }
+    @include m.m_card(0rem,0rem,0,none,true);
+    filter: drop-shadow(0px 0px 0px #0d0d0d7d);
+    
+}
+
+#acercademi .column2 div{
+    @include m.sm{
+        @include m.m_card(-3rem,3rem,0,var(--fifth-color));
+        width: 100vh;
+    }
+    @include m.md{
+        @include m.m_card(-3rem,3rem,0,none);
+        width: 100vh;
+
+    }
+    
+
+}
+.column2 div p{
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 100;
+    font-size: 14px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    @include m.sm{
+        padding-top: 30px;
+        padding-bottom: 30px;
+
+    }
+    
+    
+ }
+
+ 
+.h6_enph{
+    color: var(--eighth-color);
+    font-weight: 400;
+}

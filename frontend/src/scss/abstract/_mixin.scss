@@ -1,0 +1,64 @@
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 430px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+@mixin theme_card(){
+
+    
+}
+
+
+@mixin m_card ($padding,$left,$right,$color,$background:false){
+    padding: $padding;
+    left: $left;
+    right:$right;
+    @if $background{
+        background: none;
+    }
+    background-color: $color;
+}
+
+@mixin m_maincard($color,$alignitems,$margin_top,$justifycontent){
+    background: $color;
+    align-items: $alignitems;
+    margin-top: $margin_top;
+    justify-content: $justifycontent;
+}
+
+
+// Small devices
+@mixin sm {
+    @media (min-width: #{$screen-sm-min}) {
+        @content;
+    }
+ }
+ 
+ // Medium devices
+ @mixin md {
+    @media (min-width: #{$screen-md-min}) {
+        @content;
+    }
+ }
+ 
+ // Large devices
+ @mixin lg {
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+ 
+ // Extra large devices
+ @mixin xl {
+    @media (min-width: #{$screen-xl-min}) {
+        @content;
+    }
+ }

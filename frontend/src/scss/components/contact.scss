@@ -1,0 +1,90 @@
+@use '../abstract/mixin' as m;
+.contact-container{
+    display: flex;
+    height: 100vh;
+    
+    @include m.sm{
+        height: 100vh;
+        align-items: center;
+
+
+    }
+   
+}
+
+.contact-left 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include m.sm{
+
+        gap: 3px;
+    }
+
+}
+
+.contact-inputs{
+
+    width: 350px;
+    height: 30px;
+    border: none;
+    outline: none;
+    padding-left:10px;
+    border-radius: 7px;
+    font-size: 14px;
+
+    @include m.sm{
+        
+        width: 50vh ;
+        height: 50px;
+
+
+    }
+
+}
+
+.contact-area{
+    width: 100%;
+    height: 230px;
+    padding-left:10px;
+    padding-top: 10px;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+
+    @include m.sm{
+        width: 100%;
+        height: 150px;
+        
+
+    }
+
+
+   
+}
+
+.contact-inputs:focus{
+
+    border: 3px solid var(--eighth-color);
+
+}
+
+.contact-area:focus{
+
+    border: 3px solid var(--eighth-color);
+
+}
+
+.contact-left Button{
+    width: 100%;
+    height:auto;
+} 
+
+
+
+
+
+

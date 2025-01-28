@@ -1,0 +1,33 @@
+@use '../abstract/mixin' as m;
+.b{
+    opacity:0.23;
+}
+.b,.n,.c,.f,.g,.h,.i,.k,.m {
+    fill:var(--primary-color) ;
+}
+.d{
+    fill:var(--secondary-color);
+}
+.e{
+    fill:var(--third-color);
+}
+.j , .l , .a{fill:var(--seventh-color);}
+.ilus{
+    height: auto;
+    width: 200px;
+    padding: 1.8rem;
+    @include m.lg{
+        width: 200px;
+    }
+
+    @include m.md{
+        width: 300px;
+    }
+    @include m.sm{
+       width: 500px;
+    }
+
+    
+
+}
+
