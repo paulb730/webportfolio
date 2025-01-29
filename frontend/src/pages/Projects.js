@@ -13,23 +13,11 @@ const Projects = () => {
                     <Container>
                         <Row>
                         <div id="view3D">
-
-                        <spline-viewer id="canvas_display" url="https://prod.spline.design/ZrXVRxWumAdjO8jW/scene.splinecode"></spline-viewer>
-
-                        </div>
+                        {/** <spline-viewer id="canvas_display" url="https://prod.spline.design/ZrXVRxWumAdjO8jW/scene.splinecode"></spline-viewer> */}
                        
 
-                        </Row>
-
-                    </Container>
-
-                </CardBody>
- 
-
-            </Card>
-              
-
-              <Card className="main_card">
+                        </div>
+                        <Card className="main_card">
                 <CardBody>
                     <Container>
                         <Row>
@@ -56,6 +44,18 @@ const Projects = () => {
  
 
             </Card>
+
+                        </Row>
+
+                    </Container>
+
+                </CardBody>
+ 
+
+            </Card>
+              
+
+            
 
 
 

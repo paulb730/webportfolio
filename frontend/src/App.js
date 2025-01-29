@@ -1,27 +1,42 @@
-import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import {BrowserRouter,Routes,Route,useLocation} from 'react-router-dom'
 import Home from './pages/Home';
-import Navbar from './components/Navbar';
 import Projects from './pages/Projects';
-import Footer from './components/footer';
+import About from './pages/About';
+import Skills from './pages/Skills';
+import { useEffect } from 'react';
+
 function App() {
+  
+  //const hideheaderfooter=['/'].includes(location.pathname);
   return (
     <div className="App">
       <BrowserRouter>
-      <Navbar/>
+      
       <div className='scrollable'>
       <div className='pages'>
+      <Home/>
       <Routes>
-      <Route exact path="/" 
-             element={<Home/>}/>
-      <Route path="/projects" 
-             element={<Projects/>}/>       
+            <Route path="/projects" 
+             element={<Projects/>}/>  
+      <Route path="/about" 
+             element={<About/>}/> 
+      <Route path="/skills" 
+             element={<Skills/>}/>        
+      
+           
       </Routes>
       </div>
-      <Footer/> 
+      
       </div>
       </BrowserRouter>
     </div>
   );
+}
+
+const HideComponents=()=>{
+  const location=useLocation();
+  const hideHeaderFooter =['/'].includes(location.pathname); 
+  return(hideHeaderFooter )
 }
 
 export default App;
