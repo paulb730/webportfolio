@@ -58,10 +58,10 @@ const PopUpBar=()=>{
                      <Logobrand/>
                      { isOpen? '':<h2 >Paul Benavides</h2>}                     
                      </Col>
-                     <Col sm={(isOpen ? 12:6)}  
+                     <Col sm={(isOpen ? 6:6)}  
                      className={'column1 d-flex ' +(isOpen ? ' flex-column':'')}>
                        <Link to={isOpen? '/':'projects'} 
-                      onClick={()=>onUpdateActiveLink('projects')}>  <Button id='aboutbut' className='toggle-button' onClick={toggleSidebar}>
+                      onClick={()=>onUpdateActiveLink('projects') }>  <Button id='aboutbut' className='toggle-button' onClick={toggleSidebar}>
                         {isOpen ? SVG_icons(1):'Projects'}
                             </Button> </Link>  
                       
