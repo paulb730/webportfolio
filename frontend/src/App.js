@@ -22,8 +22,6 @@ function App() {
              element={<About/>}/> 
       <Route path="/skills" 
              element={<Skills/>}/>        
-      
-           
       </Routes>
       </div>
       

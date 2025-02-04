@@ -1,8 +1,9 @@
-import { useState} from 'react';
-import { Button } from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import { useState,useEffect} from 'react';
+import { Button,Navbar } from 'react-bootstrap';
+import {Link, useLocation} from 'react-router-dom';
 import {  Container,Card, CardBody, Row, Col} from "react-bootstrap";
 import exported from './logo';
+
 
 const SVG_icons=(text)=>{
     switch (text){
@@ -28,6 +29,14 @@ const SVG_icons=(text)=>{
                 <path d="M15 11h-4v9c0 .5523-.4477 1-1 1-.55228 0-1-.4477-1-1v-4H8v4c0 .5523-.44772 1-1 1s-1-.4477-1-1v-6.6973l-1.16797 1.752c-.30635.4595-.92722.5837-1.38675.2773-.45952-.3063-.5837-.9272-.27735-1.3867l2.99228-4.48843c.09402-.14507.2246-.26423.37869-.34445.11427-.05949.24148-.09755.3763-.10887.03364-.00289.06747-.00408.10134-.00355H15c.5523 0 1 .44772 1 1 0 .5523-.4477 1-1 1Z"/>
               </svg>
              ) 
+        case 4:
+            return(
+
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
+                </svg>
+
+            )     
 
     }
         
@@ -35,9 +44,24 @@ const SVG_icons=(text)=>{
 
 }
 const PopUpBar=()=>{
+
+    const location=useLocation();
+    
     const [activeLink,setActivelink]=useState('/');
     const [isOpen,setIsOpen]=useState(false);
     const Logobrand=exported.newgb.generate_svg;
+    console.log("is Open", isOpen)
+    
+    useEffect(()=>{
+
+        if (location.pathname!=="/"){
+
+            setIsOpen(!isOpen);
+
+        }
+
+    },[])
+    
     const toggleSidebar=()=>{
         //switch on-off
         setIsOpen(!isOpen);
@@ -47,46 +71,46 @@ const PopUpBar=()=>{
     }   
 
     return(
-        <Card class={' popup-sidebar-container' + (isOpen ? ' open' : '')}>
+        <Navbar expand="lg" className="navbar">
+           
+            <Card  class={' popup-sidebar-container' + (isOpen ? ' open' : '')} >
+            <CardBody className='popup-sidebar'>
+                <Container fluid={true} >
+                       <Row className={'d-flex align-content-center' + (isOpen? ' flex-column':' ')}>
+                        <Col sm={(isOpen ? 12:6)} 
+                         className={'column1 d-flex' +(isOpen ? ' flex-column':'') }  >
+                         <Logobrand/>
+                         { isOpen? '':<h2 >Paul Benavides</h2>}                     
+                         </Col>
+                         <Col sm={(isOpen ? 6:6)}  
+                         className={'column1 d-flex ' +(isOpen ? ' flex-column':'')}>
+                            {isOpen? <Link to={'/'}   className='toggle-button' onClick={toggleSidebar}>
+                                               {SVG_icons(4)}                                             
+                                             </Link>:<>
+                                <Link to={'Projects'}   className='toggle-button' onClick={toggleSidebar}>
+                            {isOpen ? SVG_icons(1):'Projects'}
+                                </Link> 
+                           <Link to={'skills'} className='toggle-button' onClick={toggleSidebar}>
+                                     {isOpen ? SVG_icons(2):'Skills'}
+                          </Link>                     
+                         <Link to={'about'}  className='toggle-button' href='/about'  onClick={toggleSidebar}>
+                                     {isOpen ? SVG_icons(3):'About'}
+                           </Link> 
+                            </>  }
+                          
+                          
+                        </Col>
+                          
+                        
+                        </Row> 
+    
+                </Container>
             
-        <CardBody className='popup-sidebar'>
-            <Container fluid={true} >
-                   <Row className={'d-flex align-content-center' + (isOpen? ' flex-column':' ')}>
-                    
-                     <Col sm={(isOpen ? 12:6)} 
-                     className={'column1 d-flex' +(isOpen ? ' flex-column':'') }  >
-                     <Logobrand/>
-                     { isOpen? '':<h2 >Paul Benavides</h2>}                     
-                     </Col>
-                     <Col sm={(isOpen ? 6:6)}  
-                     className={'column1 d-flex ' +(isOpen ? ' flex-column':'')}>
-                       <Link to={isOpen? '/':'projects'} 
-                      onClick={()=>onUpdateActiveLink('projects') }>  <Button id='aboutbut' className='toggle-button' onClick={toggleSidebar}>
-                        {isOpen ? SVG_icons(1):'Projects'}
-                            </Button> </Link>  
-                      
-                     <Link to={isOpen? '/':'skills'}  
-                     onClick={()=>onUpdateActiveLink('skills')} >
-                        <Button className='toggle-button' onClick={toggleSidebar}>
-                                 {isOpen ? SVG_icons(2):'Skills'}
-                      </Button>                     
-                     </Link>
-
-                     <Link to={isOpen? '/':'about'} onClick={()=>onUpdateActiveLink('skills')} >
-                     <Button className='toggle-button' onClick={toggleSidebar}>
-                                 {isOpen ? SVG_icons(3):'About'}
-                       </Button> 
-                     </Link>
-                      
-                    </Col>
-                      
-                    
-                    </Row> 
-
-            </Container>
-        
-        </CardBody>
-        </Card>
+            </CardBody>
+            </Card>
+            
+        </Navbar>
+       
 
     );
 
